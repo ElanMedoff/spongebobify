@@ -26515,6 +26515,35 @@ module.exports = function cssWithMappingToString(item) {
 
 /***/ }),
 
+/***/ "./node_modules/css-modules-typescript-loader/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/comps/Root/Root.module.css":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-modules-typescript-loader/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/comps/Root/Root.module.css ***!
+  \****************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "._29aF210uEqs-rGBilSCBce {\n  padding: 20px;\n}\n", "",{"version":3,"sources":["webpack://./src/comps/Root/Root.module.css"],"names":[],"mappings":"AAAA;EACE,aAAa;AACf","sourcesContent":[".wrapper {\n  padding: 20px;\n}\n"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"wrapper": "_29aF210uEqs-rGBilSCBce"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -30045,6 +30074,35 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/comps/Root/Root.module.css":
+/*!****************************************!*\
+  !*** ./src/comps/Root/Root.module.css ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_modules_typescript_loader_index_js_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_2_Root_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-modules-typescript-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./Root.module.css */ "./node_modules/css-modules-typescript-loader/index.js!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/comps/Root/Root.module.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_modules_typescript_loader_index_js_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_2_Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_modules_typescript_loader_index_js_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_2_Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -30334,9 +30392,96 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Root)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Root_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Root.module.css */ "./src/comps/Root/Root.module.css");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/helpers */ "./src/utils/helpers.ts");
+
+
 
 function Root() {
-    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Hello, world!");
+    var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""), input = _a[0], setInput = _a[1];
+    var handleChange = function (e) {
+        if (e.key === "Backspace") {
+            setInput(function (prevInput) {
+                if (prevInput.length === 0)
+                    return "";
+                var poppedString = prevInput.split("").pop();
+                if (typeof poppedString === "string") {
+                    return poppedString.toString();
+                }
+                throw new Error("Issue with popping string!");
+            });
+            return;
+        }
+        console.log(e.key);
+        console.log((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.isModifier)(e));
+        // check if key is modifier key
+        if ((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.isModifier)(e))
+            return;
+        setInput(function (prevInput) {
+            return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-1), e.key);
+        });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: _Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default.wrapper },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", value: input, onKeyDown: handleChange })));
+}
+
+
+/***/ }),
+
+/***/ "./src/utils/helpers.ts":
+/*!******************************!*\
+  !*** ./src/utils/helpers.ts ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isModifier": () => (/* binding */ isModifier),
+/* harmony export */   "spongebobify": () => (/* binding */ spongebobify)
+/* harmony export */ });
+function isLetter(str) {
+    return str.length === 1 && /[a-z]/i.test(str);
+}
+function isModifier(event) {
+    var modifierKeys = [
+        "Alt",
+        "AltGraph",
+        "CapsLock",
+        "Control",
+        "Fn",
+        "FnLock",
+        "Hyper",
+        "Meta",
+        "NumLock",
+        "OS",
+        "ScrollLock",
+        "Shift",
+        "Super",
+        "Symbol",
+        "SymbolLock",
+    ];
+    var isModifier = false;
+    modifierKeys.forEach(function (modifier) {
+        if (event.key === modifier) {
+            isModifier = true;
+        }
+    });
+    return isModifier;
+}
+function spongebobify(prevLetter, currLetter) {
+    // first letter in sentence
+    if (!prevLetter)
+        return currLetter.toLowerCase();
+    if (!isLetter(currLetter.slice(-1)))
+        return currLetter;
+    // normal cases
+    if (prevLetter.toUpperCase() === prevLetter) {
+        return currLetter.toLowerCase();
+    }
+    else if (prevLetter.toLowerCase() === prevLetter) {
+        return currLetter.toUpperCase();
+    }
+    return "";
 }
 
 
