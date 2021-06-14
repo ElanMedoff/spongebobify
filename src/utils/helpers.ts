@@ -2,9 +2,7 @@ function isLetter(str: string): boolean {
   return str.length === 1 && /[a-z]/i.test(str);
 }
 
-export function isModifier(
-  event: React.KeyboardEvent<HTMLInputElement>
-): boolean {
+export function isModifier(e: React.KeyboardEvent<HTMLInputElement>): boolean {
   const modifierKeys = [
     "Alt",
     "AltGraph",
@@ -24,7 +22,7 @@ export function isModifier(
   ];
   let isModifier = false;
   modifierKeys.forEach((modifier) => {
-    if (event.key === modifier) {
+    if (e.key === modifier) {
       isModifier = true;
     }
   });
@@ -44,5 +42,5 @@ export function spongebobify(prevLetter: string, currLetter: string): string {
     return currLetter.toUpperCase();
   }
 
-  return "";
+  throw new Error("Shouldn't have gotten to here!");
 }

@@ -30394,6 +30394,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Root_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Root.module.css */ "./src/comps/Root/Root.module.css");
 /* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/helpers */ "./src/utils/helpers.ts");
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 
 
 
@@ -30404,17 +30409,13 @@ function Root() {
             setInput(function (prevInput) {
                 if (prevInput.length === 0)
                     return "";
-                var poppedString = prevInput.split("").pop();
-                if (typeof poppedString === "string") {
-                    return poppedString.toString();
-                }
-                throw new Error("Issue with popping string!");
+                var prevInputCopy = __spreadArray([], prevInput.split(""));
+                prevInputCopy.pop();
+                var poppedString = prevInputCopy.join("");
+                return poppedString.toString();
             });
             return;
         }
-        console.log(e.key);
-        console.log((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.isModifier)(e));
-        // check if key is modifier key
         if ((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.isModifier)(e))
             return;
         setInput(function (prevInput) {
@@ -30422,7 +30423,9 @@ function Root() {
         });
     };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: _Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default.wrapper },
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", value: input, onKeyDown: handleChange })));
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", value: input, onKeyDown: handleChange, 
+            // bit of a hack to get rid of some warnings
+            onChange: function () { } })));
 }
 
 
@@ -30442,7 +30445,7 @@ __webpack_require__.r(__webpack_exports__);
 function isLetter(str) {
     return str.length === 1 && /[a-z]/i.test(str);
 }
-function isModifier(event) {
+function isModifier(e) {
     var modifierKeys = [
         "Alt",
         "AltGraph",
@@ -30462,7 +30465,7 @@ function isModifier(event) {
     ];
     var isModifier = false;
     modifierKeys.forEach(function (modifier) {
-        if (event.key === modifier) {
+        if (e.key === modifier) {
             isModifier = true;
         }
     });
@@ -30481,7 +30484,7 @@ function spongebobify(prevLetter, currLetter) {
     else if (prevLetter.toLowerCase() === prevLetter) {
         return currLetter.toUpperCase();
     }
-    return "";
+    throw new Error("Shouldn't have gotten to here!");
 }
 
 

@@ -8,21 +8,12 @@ export default function Root() {
   const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace") {
       setInput((prevInput) => {
-        if (prevInput.length === 0) return "";
-
-        const poppedString = prevInput.split("").pop();
-        if (typeof poppedString === "string") {
-          return poppedString.toString();
-        }
-
-        throw new Error("Issue with popping string!");
+        // kill last character
+        return prevInput.slice(0, -1);
       });
       return;
     }
 
-    console.log(e.key);
-    console.log(isModifier(e));
-    // check if key is modifier key
     if (isModifier(e)) return;
 
     setInput((prevInput) => {
@@ -32,7 +23,13 @@ export default function Root() {
 
   return (
     <div className={styles.wrapper}>
-      <input type="text" value={input} onKeyDown={handleChange} />
+      <input
+        type="text"
+        value={input}
+        onKeyDown={handleChange}
+        // bit of a hack to get rid of some warnings
+        onChange={() => {}}
+      />
     </div>
   );
 }
