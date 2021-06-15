@@ -26534,7 +26534,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._29aF210uEqs-rGBilSCBce {\n  padding: 20px;\n}\n", "",{"version":3,"sources":["webpack://./src/comps/Root/Root.module.css"],"names":[],"mappings":"AAAA;EACE,aAAa;AACf","sourcesContent":[".wrapper {\n  padding: 20px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._29aF210uEqs-rGBilSCBce {\n  padding: 20px;\n  display: flex;\n}\n\ninput {\n  border: none;\n  border-bottom: 1px solid black;\n  padding-bottom: 4px;\n  font-size: 20px;\n  margin-right: 10px;\n  overflow-x: auto;\n}\n\ninput:focus {\n  outline: none;\n  border-bottom: 2px solid black;\n  margin-bottom: -1px;\n}\n\nbutton {\n  width: 30px;\n  height: 30px;\n}\n", "",{"version":3,"sources":["webpack://./src/comps/Root/Root.module.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,aAAa;AACf;;AAEA;EACE,YAAY;EACZ,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;EACf,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,YAAY;AACd","sourcesContent":[".wrapper {\n  padding: 20px;\n  display: flex;\n}\n\ninput {\n  border: none;\n  border-bottom: 1px solid black;\n  padding-bottom: 4px;\n  font-size: 20px;\n  margin-right: 10px;\n  overflow-x: auto;\n}\n\ninput:focus {\n  outline: none;\n  border-bottom: 2px solid black;\n  margin-bottom: -1px;\n}\n\nbutton {\n  width: 30px;\n  height: 30px;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"wrapper": "_29aF210uEqs-rGBilSCBce"
@@ -30394,25 +30394,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Root_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Root.module.css */ "./src/comps/Root/Root.module.css");
 /* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/helpers */ "./src/utils/helpers.ts");
-var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
 
 
 
 function Root() {
     var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""), input = _a[0], setInput = _a[1];
-    var handleChange = function (e) {
+    var handleKeydown = function (e) {
         if (e.key === "Backspace") {
             setInput(function (prevInput) {
-                if (prevInput.length === 0)
-                    return "";
-                var prevInputCopy = __spreadArray([], prevInput.split(""));
-                prevInputCopy.pop();
-                var poppedString = prevInputCopy.join("");
-                return poppedString.toString();
+                // kill last character
+                return prevInput.slice(0, -1);
             });
             return;
         }
@@ -30422,10 +30413,28 @@ function Root() {
             return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-1), e.key);
         });
     };
+    console.log(handleKeydown);
+    var handleChange = function (e) {
+        console.log(e.target.value);
+        console.log(e.target.value.slice(-1));
+        console.log(e.target.value.slice(-2));
+        var currLetter = e.target.value.slice(-1);
+        // if (isModifier(e)) return;
+        setInput(function (prevInput) {
+            return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-2), currLetter);
+        });
+    };
+    var handleClick = function () {
+        var input = document.getElementById("input");
+        input.select();
+        document.execCommand("copy");
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: _Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default.wrapper },
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", value: input, onKeyDown: handleChange, 
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: "input", type: "text", value: input, 
+            // onKeyDown={handleKeydown}
             // bit of a hack to get rid of some warnings
-            onChange: function () { } })));
+            onChange: handleChange }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { onClick: handleClick }, "c")));
 }
 
 
