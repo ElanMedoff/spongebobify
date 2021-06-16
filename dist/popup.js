@@ -26392,7 +26392,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0px !important;\n}\n", "",{"version":3,"sources":["webpack://./src/popup.css"],"names":[],"mappings":"AAAA;EACE,sBAAsB;AACxB","sourcesContent":["body {\n  margin: 0px !important;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  /* reset chrome extension styles */\n  margin: 0px !important;\n}\n", "",{"version":3,"sources":["webpack://./src/popup.css"],"names":[],"mappings":"AAAA;EACE,kCAAkC;EAClC,sBAAsB;AACxB","sourcesContent":["body {\n  /* reset chrome extension styles */\n  margin: 0px !important;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30399,41 +30399,24 @@ __webpack_require__.r(__webpack_exports__);
 
 function Root() {
     var _a = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""), input = _a[0], setInput = _a[1];
-    var handleKeydown = function (e) {
-        if (e.key === "Backspace") {
-            setInput(function (prevInput) {
-                // kill last character
-                return prevInput.slice(0, -1);
-            });
-            return;
-        }
-        if ((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.isModifier)(e))
-            return;
-        setInput(function (prevInput) {
-            return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-1), e.key);
-        });
-    };
-    console.log(handleKeydown);
-    var handleChange = function (e) {
-        console.log(e.target.value);
-        console.log(e.target.value.slice(-1));
-        console.log(e.target.value.slice(-2));
-        var currLetter = e.target.value.slice(-1);
-        // if (isModifier(e)) return;
-        setInput(function (prevInput) {
-            return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-2), currLetter);
-        });
-    };
     var handleClick = function () {
         var input = document.getElementById("input");
         input.select();
         document.execCommand("copy");
     };
+    var handleChange = function (e) {
+        var currLetter = e.target.value.slice(-1);
+        // detect delete
+        if (input.length > e.target.value.length) {
+            setInput(e.target.value);
+            return;
+        }
+        setInput(function (prevInput) {
+            return prevInput + (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_2__.spongebobify)(prevInput.slice(-1), currLetter);
+        });
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: _Root_module_css__WEBPACK_IMPORTED_MODULE_1__.default.wrapper },
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: "input", type: "text", value: input, 
-            // onKeyDown={handleKeydown}
-            // bit of a hack to get rid of some warnings
-            onChange: handleChange }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: "input", type: "text", value: input, onChange: handleChange }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { onClick: handleClick }, "c")));
 }
 
@@ -30448,42 +30431,16 @@ function Root() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isModifier": () => (/* binding */ isModifier),
 /* harmony export */   "spongebobify": () => (/* binding */ spongebobify)
 /* harmony export */ });
 function isLetter(str) {
     return str.length === 1 && /[a-z]/i.test(str);
 }
-function isModifier(e) {
-    var modifierKeys = [
-        "Alt",
-        "AltGraph",
-        "CapsLock",
-        "Control",
-        "Fn",
-        "FnLock",
-        "Hyper",
-        "Meta",
-        "NumLock",
-        "OS",
-        "ScrollLock",
-        "Shift",
-        "Super",
-        "Symbol",
-        "SymbolLock",
-    ];
-    var isModifier = false;
-    modifierKeys.forEach(function (modifier) {
-        if (e.key === modifier) {
-            isModifier = true;
-        }
-    });
-    return isModifier;
-}
 function spongebobify(prevLetter, currLetter) {
     // first letter in sentence
     if (!prevLetter)
         return currLetter.toLowerCase();
+    // special characters
     if (!isLetter(currLetter.slice(-1)))
         return currLetter;
     // normal cases
